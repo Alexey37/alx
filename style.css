@@ -1,0 +1,47 @@
+
+hr {
+    background-color: dimgray;
+    height: 5px;
+}
+
+#font {
+    font-family: Tahoma, serif;
+}
+
+.head-container {
+    text-align: center;
+    font-family: Tahoma, serif;
+}
+
+.sub-text {
+    font-size: large;
+    color: black;
+    font-weight: bold;
+}
+
+.title {
+    font-size: xx-large;
+    color: firebrick;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.undertitle {
+    font-size: medium;
+    color: dimgrey;
+    font-style: italic;
+}
+
+.font-weight {
+    font-weight: bold;
+}
+
+
+.logo {
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+p {color: red}
+
