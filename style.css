@@ -43,5 +43,11 @@ hr {
     height: 150px;
 }
 
+.headlines {
+    font-size: larger;
+    color: firebrick;
+    font-weight: bold;
+}
+
 p {color: red}
 
