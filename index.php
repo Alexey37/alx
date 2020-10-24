@@ -1,15 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="ru">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>alex dev workspace</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
+<?php
+require("header.php");
+?>
 <br/>
 <div id="font" class="head-container">
-    <span class="sub-text font-weight">Областной футбольный клуб</span>
+    <span class="sub-text font-weight"><?php echo "Областной футбольный клуб"?></span>
     <br>
     <span class="title font-weight"> Текстильщик Иваново</span>
     <br>
@@ -113,7 +107,7 @@
             <td>2008-н.в.</td>
         </tr>
     </table>
-
+</div>
 
 
 
@@ -131,9 +125,6 @@
 
 </form>
 
-
-
-
 <br>
 
 <a href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик">
@@ -144,7 +135,5 @@
 
 <br>
 
-
-
-
 </body>
+</html>

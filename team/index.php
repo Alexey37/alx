@@ -1,3 +1,6 @@
+<?php
+require ("../header.php");
+?>
 <br>
 <a class="coach-team"> Состав команды </a>
 <table>

@@ -49,5 +49,42 @@ hr {
     font-weight: bold;
 }
 
-p {color: red}
+table, td, th {
+    border: 3px solid black;
+    border-collapse: collapse;
+    font-family: Arial, serif;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+
+table td:first-child {
+    text-align: center
+}
+
+tr:hover {
+    background-color: lightgray;
+}
+
+th {
+    background-color: lightgrey;
+    text-align: center;
+    color: firebrick;
+    font-size: larger
+}
+
+td:nth-child(2) {
+    font-style: italic
+}
+
+td:nth-child(4) {
+    text-align: center
+}
+
+.coach-team {
+    font-family: Arial, serif;
+    font-size: larger;
+    font-weight: bold
+}
 
