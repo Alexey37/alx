@@ -105,7 +105,7 @@ require("header.php");
         <tr>
             <td>"Текстильщик"</td>
             <td>2008-н.в.</td>
-        </tr>
+        </tr> 
     </table>
 </div>
 
