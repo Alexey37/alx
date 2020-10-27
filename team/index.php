@@ -1,5 +1,5 @@
 <?php
-require ("../header.php");
+require("../header.php");
 ?>
 <br>
 <a class="coach-team"> Состав команды </a>

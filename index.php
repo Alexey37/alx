@@ -1,7 +1,9 @@
 <?php
 require("header.php");
 ?>
+
 <br/>
+
 <div id="font" class="head-container">
     <span class="sub-text font-weight"><?php echo "Областной футбольный клуб"?></span>
     <br>
@@ -52,6 +54,10 @@ require("header.php");
                 padding-right: 10px;
                 padding-top: 5px;
                 padding-bottom: 5px
+            }
+            table td:first-child {
+                text-align: left;
+                font-weight: bold;
             }
         </style>
         <tr>
@@ -109,11 +115,32 @@ require("header.php");
     </table>
 </div>
 
+<br>
 
+<div>
+    <address
+            <span class="headlines">
+            г. Иваново, ул. Ермака, 49, 153025
+            </span>
+    </address>
+</div>
 
+<br>
 
-<address><b>г. Иваново</b></address>
-    <br>
+<div>
+    <span class="headlines">Полезные ссылки</span>
+        <br>
+            <a
+                href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик">fc-textil.ru
+             </a>
+        <br>
+              <a
+                href="/team/">Состав
+             </a>
+</div>
+
+<br>
+
 <form>
     <button><i>Тык</i></button>
     <br>
@@ -124,14 +151,6 @@ require("header.php");
                      style="vertical-align: middle"></button></p>
 
 </form>
-
-<br>
-
-<a href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик">
-    <b>fc-textil.ru</b>
-</a>
-<br>
-<a href="/team/">Состав</a>
 
 <br>
 

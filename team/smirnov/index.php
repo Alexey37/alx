@@ -1,6 +1,6 @@
 <?php
-    $serverName = "http://" . $_SERVER["SERVER_NAME"];
-    define("SERVER_NAME", $serverName);
+$serverName = "http://" . $_SERVER["SERVER_NAME"];
+define("SERVER_NAME", $serverName);
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="<?php echo SERVER_NAME?>/style.css">
 </head>
 <body>
-    <div>
-        <span class="title">Смирнов Алексей</span>
+    <div id="font" class="head-container">
+        <br>
+        <span class="headlines">Смирнов Алексей</span>
+
     </div>
+
 </body>
 </html>

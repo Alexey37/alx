@@ -1,9 +1,0 @@
-<style>
-table, td, th { border: 3px solid black; border-collapse: collapse; font-family: Arial,serif; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px}
-table td:first-child {text-align: center}
-tr:hover { background-color: lightgray; }
-th {background-color: lightgrey; text-align: center; color: firebrick; font-size: larger}
-.player {font-style: italic}
-.birthday {text-align: center}
-.coachteam {font-family: Arial,serif; font-size: larger ;font-weight: bold}
-</style>
