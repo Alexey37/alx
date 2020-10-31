@@ -21,7 +21,7 @@ hr {
 
 .title {
     font-size: xx-large;
-    color: firebrick;
+    color: red;
     font-weight: bold;
     text-decoration: underline;
 }
@@ -44,9 +44,10 @@ hr {
 }
 
 .headlines {
-    font-size: larger;
-    color: firebrick;
+    font-size: x-large;
+    color: darkred;
     font-weight: bold;
+    text-decoration: underline;
 }
 
 table, td, th {
@@ -101,3 +102,13 @@ td:nth-child(4) {
     text-align: left;
     font-weight: bold;
 }
+
+.date {
+    margin-left: 1650px;
+}
+
+.main-text {
+    font-size: large;
+    font-family: Arial, serif;
+}
+
