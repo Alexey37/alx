@@ -115,5 +115,7 @@ require("../header.php");
 </table>
 <br>
 <a class="coach-team"> Тренер команды - Павлов Сергей Александрович </a>
-</body>
-</html>
+
+<?php
+require ("../footer.php");
+?>
