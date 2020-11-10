@@ -1,76 +1,6 @@
 <?php
-require("header.php");
-$title="Текстильщик Иваново";
-$regionalFootballClub="Областной футбольный клуб";
-$unoffFunPortal="Неофициальный фанатский портал - just for fun";
-$yearOfFoundation = 1937;
-$yearFirstCupRsfsrWinner = 1940;
-$yearSecondCupRsfsrWinner = 1986;
-$yearFinalCupRsfsr = 1984;
-$yearGoldenRingCupWinner = 2001;
-$yearSecondDivWinner = 2006;
-$yearSecondDiwWinnerPartOne = 2018;
-$yearSecondDiwWinnerPartTwo = 2019;
-$oldNameSpartak = '"Спартак"';
-$oldNameOsnova = 'Основа';
-$oldNameDinamo = 'Динамо';
-$oldNameKrasnoeZnamya = 'Красное знамя';
-$oldNameZnamya = 'Знамя';
-$oldNameTextilschick = 'Текстильщик';
-$ivanovo = 'Иваново';
-$yearWord = 'год';
-$today = date("d.m.Y H:i:s");
-
-$mainTable = [
-    $oldNameSpartak => "1937-1939",
-    $oldNameOsnova => "1939-1943",
-    $oldNameDinamo => "1945-1946",
-    $oldNameKrasnoeZnamya => [
-        "1947-1952",
-        "1954-1957",
-    ],
-    $oldNameZnamya => "1953",
-    $oldNameTextilschick => [
-        "1957-1998",
-        "2003",
-        "2008-н.в.",
-    ],
-    $ivanovo => "1999-2000",
-    $oldNameTextilschick . "Ъ" => "2001-2002",
-    $oldNameTextilschick . "Телеком" => "2004-2007",
-];
-
-$coachTable = [
-    "Владимир Зиновьев" => "2010",
-    "Александр Гущин" => "2010-2012",
-    "Дмитрий Парфёнов" => "2012-2015",
-    "Равиль Сабитов" => "2015-2016",
-    "Сергей Петров" => "2016-2017",
-    "Вадим Евсеев" => "2017",
-    "Денис Бояринцев" => "2017-2019",
-    "Сергей Павлов" => "2020-н.в.",
-];
-
-print_r ($mainTable);
-
-
-
-
-$string = 'строка';
-$int = 2;
-$float = 3.14;
-$bool = true || false;
-$null = null;
-$array1 =[
-    1,
-    2,
-    3,
-];
-$array2 = [
-    'foot' => "ball",
-    1.2 => 123,
-];
-$std0bject = new \stdClass()
+require ("header.php");
+require ("lib/index.php");
 ?>
 
 <br/>
@@ -153,10 +83,10 @@ $std0bject = new \stdClass()
             <th>Название</th>
             <th>Период</th>
         </tr>
-        <?php foreach ($mainTable as $name => $date) {?>
+        <?php foreach ($clubOldNamesAndDates as $value) {?>
         <tr>
-            <td><?=$name?></td>
-            <td><?=$date?></td>
+            <td><?=$value['name']?></td>
+            <td><?=$value['date']?></td>
         </tr>
         <?php }?>
    </table>
@@ -164,22 +94,51 @@ $std0bject = new \stdClass()
 
 <br>
 
-    <div>
-        <span class="headlines">Тренеры клуба с 2010 года</span>
+<div id="coach">
+    <span class="headlines">Тренеры клуба с 2010 года</span>
+    <form method="get" action="/">
         <table class="main-table">
-
+        <tr>
+            <td>
+                <span>по имени</span>
+                <button name="sort_by_name" type="submit" value="asc">&#8593;</button>
+                <button name="sort_by_name" type="submit" value="desc">&#8595;</button>
+                <button name="sort_by_name" type="submit" value="">X</button>
+            </td>
+            <td>
+                <span>по дате</span>
+                <button name="sort_by_date" type="submit" value="asc">&#8593;</button>
+                <button name="sort_by_date" type="submit" value="desc">&#8595;</button>
+                <button name="sort_by_date" type="submit" value="">X</button>
+            </td>
+        </tr>
+        <tr>
+            <th>Тренер</th>
+            <th>Период</th>
+        </tr>
+        <?php foreach ($coachTable as $coachName => $coachDate) {?>
             <tr>
-                <th>Тренер</th>
-                <th>Период</th>
+                <td><?=$coachName?></td>
+                <td><?=$coachDate?></td>
             </tr>
-            <?php foreach ($coachTable as $coachName => $coachDate) {?>
-                <tr>
-                    <td><?=$coachName?></td>
-                    <td><?=$coachDate?></td>
-                </tr>
-            <?php }?>
-        </table>
-    </div>
+        <?php }?>
+    </table>
+    </form>
+</div>
+
+
+
+
+<?php
+
+goto foo;       // указываем желаемую метку
+echo 'hello';
+
+foo:            // указываем место куда нужно перейти
+echo 'world';
+
+?>
+
 
 <br>
 
@@ -194,7 +153,9 @@ $std0bject = new \stdClass()
         <br>
         <a href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик">fc-textil.ru</a>
         <br>
-        <a href="/team/">Состав</a>
+        <a href="/team/" title="Состав команды">Состав</a>
+        <br>
+        <a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D1%89%D0%B8%D0%BA_(%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BB%D1%83%D0%B1,_%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE)" title="Текстиль на Wiki">Википедия</a>
 </div>
 
 <br>
