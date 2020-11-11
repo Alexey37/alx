@@ -108,14 +108,16 @@ $std0bject = new \stdClass();
 
 
 
-if (isset($_GET['sort_by_name']) || isset($_GET['sort_by_date'])) {
+if (isset($_GET['sort_by_name'])) {
 
     sortCoachByName($_GET['sort_by_name'], $coachTable);
 
+}
 
-    if ($_GET['sort_by_date'] === 'date') {
-        arsort($coachTable);
-    }
+if (isset($_GET['sort_by_date'])) {
+
+    sortCoachByDate($_GET['sort_by_date'], $coachTable);
+
 }
 
 
@@ -141,11 +143,22 @@ function sortCoachByName(string $sortByName, array &$coachTable) {
     }
 }
 
-/**
- * @param string $sortByDate
- * @param array $coachTable
- */
+function sortCoachByDate(string $sortByDate, array &$coachTable) {
 
+    if (empty($sortByDate)) {
+        return;
+    }
+
+    if ($sortByDate === 'asc') {
+        asort($coachTable);
+        return;
+    }
+
+    if($sortByDate === 'desc') {
+        arsort($coachTable);
+        return;
+    }
+}
 
 /**
  * @param string $name

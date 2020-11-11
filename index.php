@@ -6,7 +6,7 @@ require ("lib/index.php");
 <br/>
 
 
-
+<p id="top"></p>
 <div id="font" class="head-container">
     <span class="sub-text font-weight"><?php echo $regionalFootballClub?></span>
     <br>
@@ -62,9 +62,10 @@ require ("lib/index.php");
 <br>
 
 <div>
-    <span class="headlines">Достижения</span>
+    <details>
+    <summary><span class="headlines">Достижения</span></summary>
     <span class="main-text">
-        <ul>
+       <ul>
             <li>Обладатель Кубка РСФСР - <?php echo $yearFirstCupRsfsrWinner?> <?php echo $yearWord?></li>
             <li>Обладатель Кубка РСФСР - <?php echo $yearSecondCupRsfsrWinner?> <?php echo $yearWord?></li>
             <li>Финалист Кубка РСФСР - <?php echo $yearFinalCupRsfsr?> <?php echo $yearWord?></li>
@@ -72,11 +73,15 @@ require ("lib/index.php");
             <li>Чемпион Второго дивизиона ПФЛ (зона Запад) - <?php echo $yearSecondDivWinner?> <?php echo $yearWord?></li>
             <li>Победитель Первенства ПФЛ (зона Запад) - <?php echo $yearSecondDiwWinnerPartOne?>/<?php echo $yearSecondDiwWinnerPartTwo?> сезон</li>
         </ul>
-    </span>
+        </span>
+    </details>
 </div>
 
+<br>
+
 <div>
-    <span class="headlines">Названия клуба</span>
+    <details>
+    <summary><span class="headlines">Названия клуба</span></summary>
     <table class="main-table">
 
         <tr>
@@ -89,27 +94,29 @@ require ("lib/index.php");
             <td><?=$value['date']?></td>
         </tr>
         <?php }?>
-   </table>
+    </table>
+    </details>
 </div>
 
 <br>
 
 <div id="coach">
-    <span class="headlines">Тренеры клуба с 2010 года</span>
+    <details>
+    <summary><span class="headlines">Тренеры клуба</span></summary>
     <form method="get" action="/">
         <table class="main-table">
         <tr>
             <td>
                 <span>по имени</span>
-                <button name="sort_by_name" type="submit" value="asc">&#8593;</button>
-                <button name="sort_by_name" type="submit" value="desc">&#8595;</button>
-                <button name="sort_by_name" type="submit" value="">X</button>
+                <button name="sort_by_name" type="submit" value="asc">&#9650;</button>
+                <button name="sort_by_name" type="submit" value="desc">&#9660;</button>
+                <button name="sort_by_name" type="submit" value="">&#10006;</button>
+
             </td>
             <td>
                 <span>по дате</span>
-                <button name="sort_by_date" type="submit" value="asc">&#8593;</button>
-                <button name="sort_by_date" type="submit" value="desc">&#8595;</button>
-                <button name="sort_by_date" type="submit" value="">X</button>
+                <button name="sort_by_date" type="submit" value="asc">&#9650;</button>
+                <button name="sort_by_date" type="submit" value="desc">&#9660;</button>
             </td>
         </tr>
         <tr>
@@ -124,21 +131,22 @@ require ("lib/index.php");
         <?php }?>
     </table>
     </form>
+    </details>
 </div>
 
+<br>
 
-
-
-<?php
-
-goto foo;       // указываем желаемую метку
-echo 'hello';
-
-foo:            // указываем место куда нужно перейти
-echo 'world';
-
-?>
-
+<div>
+    <details>
+    <summary><span class="headlines">Полезные ссылки</span></summary>
+    <br>
+    <a href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик">fc-textil.ru</a>
+    <br>
+    <a href="/team/" title="Состав команды">Состав</a>
+    <br>
+    <a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D1%89%D0%B8%D0%BA_(%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BB%D1%83%D0%B1,_%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE)" title="Текстиль на Wiki">Текстильщик на Wiki</a>
+    </details>
+</div>
 
 <br>
 
@@ -148,15 +156,7 @@ echo 'world';
 
 <br>
 
-<div>
-    <span class="headlines">Полезные ссылки</span>
-        <br>
-        <a href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик">fc-textil.ru</a>
-        <br>
-        <a href="/team/" title="Состав команды">Состав</a>
-        <br>
-        <a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D1%89%D0%B8%D0%BA_(%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BB%D1%83%D0%B1,_%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE)" title="Текстиль на Wiki">Википедия</a>
-</div>
+
 
 <br>
 
@@ -166,13 +166,10 @@ echo 'world';
     <img width="35" height="35" src="ball.png">
 </p>
 
-
-    <img width="853" height="640" src="images/ShinTextile.png" />
-
 <br>
 
 <form>
-    <button><i>Наверх страницы</i></button>
+    <button><a href="#top" title="Наверх страницы">&#9650;</a></button>
     <br>
 
     <p style="text-align: center">
@@ -181,8 +178,6 @@ echo 'world';
                          style="vertical-align: middle"></button></p>
 
 </form>
-
-    <br>
 
 <br>
 
