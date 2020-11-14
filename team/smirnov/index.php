@@ -4,8 +4,6 @@ $birthDate = '15.04.1994';
 
 ?>
 
-
-
 <div id="font" class="head-container">
         <br>
         <span class="headlines">Смирнов Алексей Сергеевич</span>

@@ -5,7 +5,6 @@ require ("lib/index.php");
 
 <br/>
 
-
 <p id="top"></p>
 <div id="font" class="head-container">
     <span class="sub-text font-weight"><?php echo $regionalFootballClub?></span>
@@ -36,7 +35,7 @@ require ("lib/index.php");
     <span class="main-text">
     <p >
         Футбольный клуб "<?php echo $oldNameTextilschick?>" основан в 1937 году. Тогда ивановская команда,
-        которая в то время называлась "<?php echo $oldNameSpartak?>", впервые приняла участие в чемпионате СССР. Однако,
+        которая в то время называлась <?php echo $oldNameSpartak?>, впервые приняла участие в чемпионате СССР. Однако,
         в целом ивановский футбол значительно старше. Свою точку отсчета футбол в нашем городе берет с 1909 года.
         Тогда в <?php echo $ivanovo?>-Вознесенске прошли первые организованные матчи, а в 1912-м (в год образования
         всероссийского футбольного союза) команда <?php echo $ivanovo?>-Вознесенска сыграла свой первый матч, обыграв
@@ -63,7 +62,7 @@ require ("lib/index.php");
 
 <div>
     <details>
-    <summary><span class="headlines">Достижения</span></summary>
+    <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Достижения</span></summary>
     <span class="main-text">
        <ul>
             <li>Обладатель Кубка РСФСР - <?php echo $yearFirstCupRsfsrWinner?> <?php echo $yearWord?></li>
@@ -81,9 +80,8 @@ require ("lib/index.php");
 
 <div>
     <details>
-    <summary><span class="headlines">Названия клуба</span></summary>
+    <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Названия клуба</span></summary>
     <table class="main-table">
-
         <tr>
             <th>Название</th>
             <th>Период</th>
@@ -102,18 +100,17 @@ require ("lib/index.php");
 
 <div id="coach">
     <details>
-    <summary><span class="headlines">Тренеры клуба</span></summary>
+    <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Тренеры клуба</span></summary>
     <form method="get" action="/">
         <table class="main-table">
         <tr>
-            <td>
+            <td style="font-style: italic">
                 <span>по имени</span>
                 <button name="sort_by_name" type="submit" value="asc">&#9650;</button>
                 <button name="sort_by_name" type="submit" value="desc">&#9660;</button>
                 <button name="sort_by_name" type="submit" value="">&#10006;</button>
-
             </td>
-            <td>
+            <td style="font-weight: bold">
                 <span>по дате</span>
                 <button name="sort_by_date" type="submit" value="asc">&#9650;</button>
                 <button name="sort_by_date" type="submit" value="desc">&#9660;</button>
@@ -123,12 +120,12 @@ require ("lib/index.php");
             <th>Тренер</th>
             <th>Период</th>
         </tr>
-        <?php foreach ($coachTable as $coachName => $coachDate) {?>
-            <tr>
-                <td><?=$coachName?></td>
-                <td><?=$coachDate?></td>
-            </tr>
-        <?php }?>
+            <?php foreach ($coachTable as $coachName => $coachDate) {?>
+                <tr>
+                    <td><?=$coachName?></td>
+                    <td><?=$coachDate?></td>
+                </tr>
+            <?php }?>
     </table>
     </form>
     </details>
@@ -138,13 +135,15 @@ require ("lib/index.php");
 
 <div>
     <details>
-    <summary><span class="headlines">Полезные ссылки</span></summary>
+    <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Полезные ссылки</span></summary>
     <br>
     <a href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик">fc-textil.ru</a>
     <br>
     <a href="/team/" title="Состав команды">Состав</a>
     <br>
     <a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D1%89%D0%B8%D0%BA_(%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BB%D1%83%D0%B1,_%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE)" title="Текстиль на Wiki">Текстильщик на Wiki</a>
+    <br>
+    <a href="/clubstat.php/" title="Статистика выступлений">Статистика выступлений</a>
     </details>
 </div>
 
@@ -174,7 +173,7 @@ require ("lib/index.php");
 
     <p style="text-align: center">
 
-        <button><img width="50" height="50" src="ball.png" alt="Текстиль"
+        <button style="cursor: pointer"><img width="50" height="50" src="ball.png" alt="Текстиль"
                          style="vertical-align: middle"></button></p>
 
 </form>

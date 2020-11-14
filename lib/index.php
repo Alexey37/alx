@@ -10,7 +10,7 @@ $yearGoldenRingCupWinner = 2001;
 $yearSecondDivWinner = 2006;
 $yearSecondDiwWinnerPartOne = 2018;
 $yearSecondDiwWinnerPartTwo = 2019;
-$oldNameSpartak = '"Спартак"';
+$oldNameSpartak = 'Спартак';
 $oldNameOsnova = 'Основа';
 $oldNameDinamo = 'Динамо';
 $oldNameKrasnoeZnamya = 'Красное знамя';
@@ -19,6 +19,7 @@ $oldNameTextilschick = 'Текстильщик';
 $ivanovo = 'Иваново';
 $yearWord = 'год';
 $today = date("d.m.Y H:i:s");
+
 
 $mainTable = [
     $oldNameSpartak => "1937-1939",
@@ -57,24 +58,20 @@ foreach ($mainTable as $clubName => $date) {
     }
 }
 
-
-
 usort($clubOldNamesAndDates, function($a, $b) {
     return $a['date'] <=> $b['date'];
 });
 
 
-
-
-//LOGIKA
-$coaches = file_get_contents (SERVER_NAME . '/upload/coach.txt');
-if (!empty($coaches) && strlen($coaches)) {
-    $prepareCoaches = explode("\n", $coaches);
-    $coachTable = [];
-    foreach ($prepareCoaches as $coach) {
+//LOGIKA ТОЛЬКО ДЛЯ ТАБЛИЦ, ГДЕ НЕ БОЛЕЕ 2 СТОЛБЦОВ
+$coaches = file_get_contents (SERVER_NAME . '/upload/coach.txt'); //задаем переменную, которая работает с указанным файлом
+if (!empty($coaches) && strlen($coaches)) { //если переменная не пустая И И  содержит хотя бы 1 символ
+    $prepareCoaches = explode("\n", $coaches); //разбивает строку на массив при помощи делиметра слэшН - перенос строки (в кавычках указывается то от чего перенос прыгает)
+    $coachTable = []; //объявляем переменную коачтэйбл массивом
+    foreach ($prepareCoaches as $coach) { // перебираем массив форич (для каждого) где 1 переменная является перебираемым значением массива,
         //TUT!!!!1 uslovija
-        $result = explode( ',', $coach);
-        $coachTable[$result[0]] = $result[1];
+        $result = explode( ',', $coach); //преобразуем строки из значений массива prepareCoaches в массив из 2 заранее известных элементов
+        $coachTable[$result[0]] = $result[1]; // где ключ резалт0 (имя тренера), а значение резалт1 (год)
     }
 
     //sortirovka TUT!!!!!
@@ -84,6 +81,12 @@ if (!empty($coaches) && strlen($coaches)) {
 
 
 
+$testOne = [
+    'bug' => 1,
+    2,
+    3,
+    4
+];
 
 
 
@@ -171,4 +174,4 @@ function prepareValue(string $name, string $date): array {
 
     return $result;
 }
-?>
+
