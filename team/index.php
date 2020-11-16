@@ -2,7 +2,7 @@
 require("../header.php");
 ?>
 <br>
-<a class="coach-team"> Состав команды </a>
+<span class="table-headlines"> Состав команды </span>
 <table>
     <tr>
         <th>Номер</th>
@@ -114,7 +114,7 @@ require("../header.php");
     </tr>
 </table>
 <br>
-<a class="coach-team"> Тренер команды - Павлов Сергей Александрович </a>
+<a>Главный тренер команды - Павлов Сергей Александрович</a>
 
 <?php
 require ("../footer.php");

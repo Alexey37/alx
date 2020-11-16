@@ -104,21 +104,17 @@ require ("lib/index.php");
     <form method="get" action="/">
         <table class="main-table">
         <tr>
-            <td style="font-style: italic">
-                <span>по имени</span>
+            <th>Тренер
+                <br>
                 <button name="sort_by_name" type="submit" value="asc">&#9650;</button>
                 <button name="sort_by_name" type="submit" value="desc">&#9660;</button>
                 <button name="sort_by_name" type="submit" value="">&#10006;</button>
-            </td>
-            <td style="font-weight: bold">
-                <span>по дате</span>
+            </th>
+            <th>Период
+                <br>
                 <button name="sort_by_date" type="submit" value="asc">&#9650;</button>
                 <button name="sort_by_date" type="submit" value="desc">&#9660;</button>
-            </td>
-        </tr>
-        <tr>
-            <th>Тренер</th>
-            <th>Период</th>
+            </th>
         </tr>
             <?php foreach ($coachTable as $coachName => $coachDate) {?>
                 <tr>
@@ -137,13 +133,13 @@ require ("lib/index.php");
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Полезные ссылки</span></summary>
     <br>
+    <a href="/clubstat.php/" title="Статистика выступлений">Статистика выступлений</a>
+    <br>
+    <a href="/team/" title="Состав команды">Состав команды</a>
+    <br>
     <a href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик">fc-textil.ru</a>
     <br>
-    <a href="/team/" title="Состав команды">Состав</a>
-    <br>
     <a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D1%89%D0%B8%D0%BA_(%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BB%D1%83%D0%B1,_%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE)" title="Текстиль на Wiki">Текстильщик на Wiki</a>
-    <br>
-    <a href="/clubstat.php/" title="Статистика выступлений">Статистика выступлений</a>
     </details>
 </div>
 

@@ -18,9 +18,9 @@ foreach ($clubStatTableRows as $value) {
 
 
 <div id="clubStatistic">
-    <span class="headlines">Статистика выступлений клуба</span>
+    <span class="table-headlines">Статистика выступлений клуба</span>
     <form method="get" action="/clubstat.php/">
-        <table class="thClubStat">
+        <table>
             <tr>
                 <th><span>Год</span>
                     <br>
