@@ -12,13 +12,13 @@ require("../header.php");
     </tr>
     <tr>
         <td>1</td>
-        <td><a href="/team/smirnov/">Смирнов Алексей</a></td>
+        <td><a href="/team/smirnov/" target="_blank">Смирнов Алексей</a></td>
         <td>Вратарь</td>
         <td>1994</td>
     </tr>
     <tr>
         <td>16</td>
-        <td><a href="/team/kiselev/">Киселёв Максим</a></td>
+        <td><a href="/team/kiselev/" target="_blank">Киселёв Максим</a></td>
         <td>Вратарь</td>
         <td>1995</td>
     </tr>

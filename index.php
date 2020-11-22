@@ -133,13 +133,13 @@ require ("lib/index.php");
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Полезные ссылки</span></summary>
     <br>
-    <a href="/clubstat.php/" title="Статистика выступлений">Статистика выступлений</a>
+    <a href="/clubstat.php/" title="Статистика выступлений" target="_blank">Статистика выступлений</a>
     <br>
-    <a href="/team/" title="Состав команды">Состав команды</a>
+    <a href="/team/" title="Состав команды" target="_blank">Состав команды</a>
     <br>
-    <a href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик">fc-textil.ru</a>
+    <a href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик" target="_blank">fc-textil.ru</a>
     <br>
-    <a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D1%89%D0%B8%D0%BA_(%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BB%D1%83%D0%B1,_%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE)" title="Текстиль на Wiki">Текстильщик на Wiki</a>
+    <a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D1%89%D0%B8%D0%BA_(%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BB%D1%83%D0%B1,_%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE)" title="Текстиль на Wiki" target="_blank">Текстильщик на Wiki</a>
     </details>
 </div>
 
