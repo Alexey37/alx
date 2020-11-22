@@ -58,6 +58,7 @@ foreach ($mainTable as $clubName => $date) {
     }
 }
 
+
 usort($clubOldNamesAndDates, function($a, $b) {
     return $a['date'] <=> $b['date'];
 });
@@ -68,10 +69,12 @@ $coaches = file_get_contents (SERVER_NAME . '/upload/coach.txt'); //задаем
 if (!empty($coaches) && strlen($coaches)) { //если переменная не пустая И И  содержит хотя бы 1 символ
     $prepareCoaches = explode("\n", $coaches); //разбивает строку на массив при помощи делиметра слэшН - перенос строки (в кавычках указывается то от чего перенос прыгает)
     $coachTable = []; //объявляем переменную коачтэйбл массивом
+    $i = 0;
     foreach ($prepareCoaches as $coach) { // перебираем массив форич (для каждого) где 1 переменная является перебираемым значением массива,
-        //TUT!!!!1 uslovija
+        $i++;
         $result = explode( ',', $coach); //преобразуем строки из значений массива prepareCoaches в массив из 2 заранее известных элементов
-        $coachTable[$result[0]] = $result[1]; // где ключ резалт0 (имя тренера), а значение резалт1 (год)
+        $coachTable[$i]=prepareValue($result[0], $result[1]);
+        //$coachTable[$result[0]] = $result[1]; // где ключ резалт0 (имя тренера), а значение резалт1 (год)
     }
 
     //sortirovka TUT!!!!!
@@ -130,38 +133,57 @@ if (isset($_GET['sort_by_date'])) {
  * @param array $coachTable
  */
 function sortCoachByName(string $sortByName, array &$coachTable) {
-
-    if (empty($sortByName)) {
-        return;
-    }
-
     if ($sortByName === 'asc') {
-        ksort($coachTable);
-        return;
-    }
+        usort($coachTable, function ($a, $b) {
+            if ($a['name'] === $b['name'] ) {
+                return 0;
+            }
+            if ($a['name'] > $b['name']) {
+                return 1;
 
-    if($sortByName === 'desc') {
-        krsort($coachTable);
-        return;
+            }
+            return -1;
+            });
+    }
+    if ($sortByName === 'desc') {
+        usort($coachTable, function ($a, $b) {
+            if ($a['name'] === $b['name']) {
+                return 0;
+            }
+            if ($a['name'] < $b['name']) {
+                return 1;
+            }
+            return -1;
+        });
     }
 }
 
 function sortCoachByDate(string $sortByDate, array &$coachTable) {
-
-    if (empty($sortByDate)) {
-        return;
-    }
-
     if ($sortByDate === 'asc') {
-        asort($coachTable);
-        return;
+        usort($coachTable, function ($a, $b) {
+            if ($a['date'] === $b['date'] ) {
+                return 0;
+            }
+            if ($a['date'] > $b['date']) {
+                return 1;
+            }
+            return -1;
+        });
     }
-
-    if($sortByDate === 'desc') {
-        arsort($coachTable);
-        return;
+    if ($sortByDate === 'desc') {
+        usort($coachTable, function ($a, $b) {
+            if ($a['date'] === $b['date']) {
+                return 0;
+            }
+            if ($a['date'] < $b['date']) {
+                return 1;
+            }
+            return -1;
+        });
     }
 }
+//как объединить сортировку по дате и по имени не дублируя код, чтобы одна функция сортировала и по имени и по дате
+
 
 /**
  * @param string $name
@@ -174,4 +196,5 @@ function prepareValue(string $name, string $date): array {
 
     return $result;
 }
+
 

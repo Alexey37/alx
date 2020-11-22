@@ -108,7 +108,7 @@ require ("lib/index.php");
                 <br>
                 <button name="sort_by_name" type="submit" value="asc">&#9650;</button>
                 <button name="sort_by_name" type="submit" value="desc">&#9660;</button>
-                <button name="sort_by_name" type="submit" value="">&#10006;</button>
+                <button name="sort_by_date" type="submit" value="asc">&#10006;</button>
             </th>
             <th>Период
                 <br>
@@ -116,10 +116,10 @@ require ("lib/index.php");
                 <button name="sort_by_date" type="submit" value="desc">&#9660;</button>
             </th>
         </tr>
-            <?php foreach ($coachTable as $coachName => $coachDate) {?>
+            <?php foreach ($coachTable as $coach) {?>
                 <tr>
-                    <td><?=$coachName?></td>
-                    <td><?=$coachDate?></td>
+                    <td><?=$coach['name']?></td>
+                    <td><?=$coach['date']?></td>
                 </tr>
             <?php }?>
     </table>

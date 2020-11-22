@@ -33,9 +33,9 @@ if (isset($post['coaches']) && $post['submit']) {
     }
 
 
-
     //уничтожить пробелы и пустые элементы массива (воскресенье)
     $result = array_merge($uploadedCoaches, $content);
+    $result = clearArray($result);
     $result = implode("\n", array_unique($result));
     $writeResult = file_put_contents( 'upload/coach.txt', $result);
     if ($writeResult) {
@@ -43,15 +43,24 @@ if (isset($post['coaches']) && $post['submit']) {
     }
 }
 
-
-if ($key === 0 && $value === 0) {
-    unset($key);
-    unset($value);
-    unset($writeResult);
+function clearArray (array $array){
+    $result =[];
+    foreach ($array as $key => $value) {
+        $key=trim($key);
+        $value=trim($value);
+        if (stristr($value,', ')) {
+            $value=str_replace (', ', ',', $value);
+        }
+        if (empty($key) || empty($value)) {    // || - ИЛИ   //если удаляю ключ, то грохается и значение
+            continue;
+        }
+        $result[$key]=$value;
+    }
+    dump($result);
+    return $result;
 }
 
 
-print_r($content);
 
 ?>
 
