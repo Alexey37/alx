@@ -22,14 +22,14 @@ foreach ($clubStatTableRows as $value) {
     <form method="get" action="/clubstat.php/">
         <table>
             <tr>
-                <th>
-                    <span>Год</span>
-                </th>
-                <th><span>Турнир</span>
+                <th><span>Год</span>
                     <br>
-                    <button name="sort_by_name" type="submit" value="asc">&#9650;</button>
-                    <button name="sort_by_name" type="submit" value="desc">&#9660;</button>
-                    <button name="sort_by_name" type="submit" value="">&#10006;</button>
+                    <button name="sort_by_year" type="submit" value="asc" onclick="return false">&#9650;</button>
+                    <button name="sort_by_year" type="submit" value="desc">&#9660;</button>
+                    <button name="sort_by_year" type="submit" value="">&#10006;</button>
+                </th>
+                <th>
+                    <span>Турнир</span>
                 </th>
                 <th>
                     <span>Место</span>
@@ -115,3 +115,6 @@ foreach ($clubStatTableRows as $value) {
     (при условии, что они не отказались от дальнейших выступлений)
     </p>
 </body>
+
+
+

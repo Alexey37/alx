@@ -164,7 +164,7 @@ require ("lib/index.php");
 <br>
 
 <form>
-    <button><a href="#top" title="Наверх страницы">&#9650;</a></button>
+    <button><a href="#top" title="Наверх страницы" class="div_fix_block">&#9650;</a></button>
     <br>
 
     <p style="text-align: center">

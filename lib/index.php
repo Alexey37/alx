@@ -116,13 +116,13 @@ $std0bject = new \stdClass();
 
 if (isset($_GET['sort_by_name'])) {
 
-    sortCoachByName($_GET['sort_by_name'], $coachTable);
+    uniSort($_GET['sort_by_name'], $coachTable, 'name');
 
 }
 
 if (isset($_GET['sort_by_date'])) {
 
-    sortCoachByDate($_GET['sort_by_date'], $coachTable);
+    uniSort($_GET['sort_by_date'], $coachTable, 'date');
 
 }
 
@@ -132,25 +132,26 @@ if (isset($_GET['sort_by_date'])) {
  * @param string $sortByName
  * @param array $coachTable
  */
-function sortCoachByName(string $sortByName, array &$coachTable) {
-    if ($sortByName === 'asc') {
-        usort($coachTable, function ($a, $b) {
-            if ($a['name'] === $b['name'] ) {
+function uniSort(string $sortBySmth, array &$coachTable, $type)
+{
+    if ($sortBySmth === 'asc') {
+        usort($coachTable, function ($a, $b) use ($type) {
+            if ($a[$type] === $b[$type]) {
                 return 0;
             }
-            if ($a['name'] > $b['name']) {
+            if ($a[$type] > $b[$type]) {
                 return 1;
 
             }
             return -1;
-            });
+        });
     }
-    if ($sortByName === 'desc') {
-        usort($coachTable, function ($a, $b) {
-            if ($a['name'] === $b['name']) {
+    if ($sortBySmth === 'desc') {
+        usort($coachTable, function ($a, $b) use ($type) {
+            if ($a[$type] === $b[$type]) {
                 return 0;
             }
-            if ($a['name'] < $b['name']) {
+            if ($a[$type] < $b[$type]) {
                 return 1;
             }
             return -1;
@@ -158,31 +159,32 @@ function sortCoachByName(string $sortByName, array &$coachTable) {
     }
 }
 
-function sortCoachByDate(string $sortByDate, array &$coachTable) {
-    if ($sortByDate === 'asc') {
-        usort($coachTable, function ($a, $b) {
-            if ($a['date'] === $b['date'] ) {
-                return 0;
-            }
-            if ($a['date'] > $b['date']) {
-                return 1;
-            }
-            return -1;
-        });
-    }
-    if ($sortByDate === 'desc') {
-        usort($coachTable, function ($a, $b) {
-            if ($a['date'] === $b['date']) {
-                return 0;
-            }
-            if ($a['date'] < $b['date']) {
-                return 1;
-            }
-            return -1;
-        });
-    }
-}
+//function sortCoachByDate(string $sortByDate, array &$coachTable) {
+    //if ($sortByDate === 'asc') {
+    //    usort($coachTable, function ($a, $b) {
+    //        if ($a['date'] === $b['date'] ) {
+    //            return 0;
+    //        }
+    //        if ($a['date'] > $b['date']) {
+    //            return 1;
+    //        }
+    //        return -1;
+   //     });
+ //   }
+ //   if ($sortByDate === 'desc') {
+  //      usort($coachTable, function ($a, $b) {
+ //           if ($a['date'] === $b['date']) {
+   //             return 0;
+     //       }
+  //          if ($a['date'] < $b['date']) {
+   //             return 1;
+ //           }
+   //         return -1;
+ //       });
+//    }
+//}
 //как объединить сортировку по дате и по имени не дублируя код, чтобы одна функция сортировала и по имени и по дате
+//аргумент нэйм или дэйт в кач переменной
 
 
 /**
