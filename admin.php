@@ -56,11 +56,62 @@ function clearArray (array $array){
         }
         $result[$key]=$value;
     }
-    dump($result);
     return $result;
 }
 
+if ($post['submit_match']) {
+    dump($post);
+    dump($_FILES);
+    $error = '';
+    $file = $_FILES;
+    try {
+        if (!$post['team']) {
+            throw new Exception('Неверное название команды');
+        }
 
+        if (!$post['result']) {
+            throw new Exception('Не указан результат');
+        }
+
+        if (!$post['date']) {
+            throw new Exception('Не указана дата');
+        }
+
+        if (!$file['image']) {
+            throw new Exception('Не загружено изображение');
+        }
+
+        $resultMatches = [
+            'team' => $post['team'],
+            'result' => $post['result'],
+            'date' => $post['date'],
+            'image' => 'upload/' . $file['image']['name'],
+        ];
+
+        $uploadedResult = move_uploaded_file(
+                $file['image']['tmp_name'],
+                'upload/img/' . $file['image']['name']
+        );
+
+        if (!$uploadedResult) {
+            throw new Exception("Не удалось сохранить изображение");
+        }
+
+        $data = file_put_contents(
+                'upload/match.txt',
+                json_encode($resultMatches),
+                FILE_APPEND
+        );
+
+        if (!$data) {
+            throw new Exception('Не удалось сохранить данные');
+        }
+
+    } catch (\Exception $exception) {
+        $error = $exception->getMessage();
+    }
+}
+print_r($resultMatches);
 
 ?>
 
@@ -79,11 +130,33 @@ function clearArray (array $array){
 
 <?php if ($_SESSION['auth'] === 'true'):?>
     <p>Тренеры</p>
-<form method="post" action="admin.php">
-    <textarea name="coaches"><?= $result ?? $uploadedCoaches ?? ''?></textarea>
-    <input type="submit" name="submit"/>
-</form>
-<form method="post" action="admin.php">
-   <input type="submit" name="logout" value="logout"/>
-</form>
+    <form method="post" action="admin.php">
+        <textarea name="coaches"><?= $result ?? $uploadedCoaches ?? ''?></textarea>
+        <input type="submit" name="submit"/>
+    </form>
+    <form method="post" action="admin.php">
+       <input type="submit" name="logout" value="logout"/>
+    </form>
+    <br>
+    <br>
+    <br>
+    <p>Сыгранные матчи</p>
+    <form method="post" action="admin.php" enctype="multipart/form-data">
+        <input type="text" pattern="^[А-Яа-яЁё\-]+$" name="team" placeholder="команда"/>
+        <input type="text" pattern="\d+(:\d)?" name="result" placeholder="результат"/>
+        <input type="date" pattern="/(19|20)\d\d-((0[1-9]|1[012])-(0[1-9]|[12]\d)|(0[13-9]|1[012])-30|(0[13578]|1[02])-31)/" name="date" placeholder="дата"/>
+        <input type="file" name="image"/>
+        <input type="submit" name="submit_match" />
+    </form>
 <?php endif;?>
+
+<?php
+function validateDate($date, $format = 'd.m.Y') {
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) == $date;
+}
+
+var_dump(validateDate('30.02.2011', 'd.m.Y'));
+?>
+
+

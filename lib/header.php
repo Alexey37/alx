@@ -1,5 +1,8 @@
 <?php
 $serverName = "http://" . $_SERVER["SERVER_NAME"];
+$title="Текстильщик Иваново";
+$regionalFootballClub="Областной футбольный клуб";
+$unoffFunPortal="Неофициальный фанатский портал - just for fun";
 define("SERVER_NAME", $serverName);
 define("IMAGES", $serverName . "/images/");
 
@@ -78,6 +81,6 @@ function dump($variable) {
     echo "</pre>";
 }
 
-print_r($_SESSION)
+
 
 ?>

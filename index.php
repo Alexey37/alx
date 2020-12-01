@@ -3,18 +3,6 @@ require ("header.php");
 require ("lib/index.php");
 ?>
 
-<br/>
-
-<p id="top"></p>
-<div id="font" class="head-container">
-    <span class="sub-text font-weight"><?php echo $regionalFootballClub?></span>
-    <br>
-    <span class="title font-weight"><?php echo $title?></span>
-    <br>
-    <span class="undertitle"><?php echo $unoffFunPortal?></span>
-    <br>
-    <img class="logo"  src="textile.png" />
-</div>
 
 <br>
 
@@ -164,7 +152,7 @@ require ("lib/index.php");
 <br>
 
 <form>
-    <button><a href="#top" title="Наверх страницы" class="div_fix_block">&#9650;</a></button>
+    <button><a href="#top" title="Наверх страницы">&#9650;</a></button>
     <br>
 
     <p style="text-align: center">

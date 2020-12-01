@@ -1,7 +1,5 @@
 <?php
-$title="Текстильщик Иваново";
-$regionalFootballClub="Областной футбольный клуб";
-$unoffFunPortal="Неофициальный фанатский портал - just for fun";
+
 $yearOfFoundation = 1937;
 $yearFirstCupRsfsrWinner = 1940;
 $yearSecondCupRsfsrWinner = 1986;
@@ -132,9 +130,8 @@ if (isset($_GET['sort_by_date'])) {
  * @param string $sortByName
  * @param array $coachTable
  */
-function uniSort(string $sortBySmth, array &$coachTable, $type)
-{
-    if ($sortBySmth === 'asc') {
+function uniSort(string $sort, array &$coachTable, $type) {
+    if ($sort === 'asc') {
         usort($coachTable, function ($a, $b) use ($type) {
             if ($a[$type] === $b[$type]) {
                 return 0;
@@ -146,7 +143,7 @@ function uniSort(string $sortBySmth, array &$coachTable, $type)
             return -1;
         });
     }
-    if ($sortBySmth === 'desc') {
+    if ($sort === 'desc') {
         usort($coachTable, function ($a, $b) use ($type) {
             if ($a[$type] === $b[$type]) {
                 return 0;
@@ -199,4 +196,23 @@ function prepareValue(string $name, string $date): array {
     return $result;
 }
 
-
+/**
+ * 1) фотографии
+ * 2) команды соперники
+ * 3) результаты матча
+ *
+ * part 1
+ * настройка вывода контента - front
+ *  фото, дата, результаты, соперник
+ *
+ * part 2
+ * настройка логики загрузки данных
+ * json
+ * file upload
+ * форма, которая будет содержать
+ *          загрузку файла
+ *          результат
+ *          соперник
+ *          дата
+ *
+ */
