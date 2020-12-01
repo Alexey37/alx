@@ -65,11 +65,11 @@ if ($post['submit_match']) {
     $error = '';
     $file = $_FILES;
     try {
-        if (!$post['team']) {
+        if (!preg_match( '/[а-яё]/iu', $post['team'])) {
             throw new Exception('Неверное название команды');
         }
 
-        if (!$post['result']) {
+        if (!validateResult($post['result'])) {
             throw new Exception('Не указан результат');
         }
 
@@ -90,7 +90,7 @@ if ($post['submit_match']) {
 
         $uploadedResult = move_uploaded_file(
                 $file['image']['tmp_name'],
-                'upload/img/' . $file['image']['name']
+                'upload/image/' . $file['image']['name']
         );
 
         if (!$uploadedResult) {
@@ -99,7 +99,7 @@ if ($post['submit_match']) {
 
         $data = file_put_contents(
                 'upload/match.txt',
-                json_encode($resultMatches),
+                json_encode($resultMatches) . PHP_EOL,
                 FILE_APPEND
         );
 
@@ -111,8 +111,32 @@ if ($post['submit_match']) {
         $error = $exception->getMessage();
     }
 }
-print_r($resultMatches);
+function validateResult (string $result) {
+    dump(1);
+    if (empty($result)) {
+        return false;
+    }
+    dump(2);
+    if (stristr($result, ':') === false) {
+        return false;
+    }
+    $matchResult = explode(":", $result);
+    dump(3);
+    if (count($matchResult)>2) {
+        return false;
+    }
+    dump(4);
+    foreach ($matchResult as $value) {
+        if (!is_integer((int)$value)) {
+            return false;
+        }
+    }
+    return true;
+}
 
+
+print_r($resultMatches);
+echo $error;
 ?>
 
 
@@ -142,7 +166,7 @@ print_r($resultMatches);
     <br>
     <p>Сыгранные матчи</p>
     <form method="post" action="admin.php" enctype="multipart/form-data">
-        <input type="text" pattern="^[А-Яа-яЁё\-]+$" name="team" placeholder="команда"/>
+        <input type="text" name="team" placeholder="команда"/>
         <input type="text" pattern="\d+(:\d)?" name="result" placeholder="результат"/>
         <input type="date" pattern="/(19|20)\d\d-((0[1-9]|1[012])-(0[1-9]|[12]\d)|(0[13-9]|1[012])-30|(0[13578]|1[02])-31)/" name="date" placeholder="дата"/>
         <input type="file" name="image"/>
@@ -156,7 +180,7 @@ function validateDate($date, $format = 'd.m.Y') {
     return $d && $d->format($format) == $date;
 }
 
-var_dump(validateDate('30.02.2011', 'd.m.Y'));
+var_dump(validateDate('10.02.2011', 'd.m.Y'));
 ?>
 
 

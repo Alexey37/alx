@@ -1,1 +1,4 @@
-{"team":"\u0417\u0435\u043d\u0438\u0442","result":"10:0","date":"2020-11-23","image":"upload\/ShinTextile.png"}{"team":"\u0411\u0430\u043b\u0442\u0438\u043a\u0430","result":"0:1","date":"2020-11-11","image":"upload\/33.jpg"}
+{"team":"\u0417\u0435\u043d\u0438\u0442","result":"10:0","date":"2020-11-23","image":"upload\/ShinTextile.png"}
+{"team":"\u0411\u0430\u043b\u0442\u0438\u043a\u0430","result":"0:1","date":"2020-11-11","image":"upload\/33.jpg"}
+{"team":"\u0421\u043f\u0430\u0440\u0442\u0430\u043a","result":"1:1","date":"2020-12-01","image":"upload\/240px-Dvarf.jpg"}{"team":"\u0421\u043f\u0430\u0440\u0442\u0430\u043a","result":"1:1","date":"2020-12-01","image":"upload\/240px-Dvarf.jpg"}
+{"team":"\u0421\u041a\u0410-\u0425\u0430\u0431\u0430\u0440\u043e\u0432\u0441\u043a","result":"1:1","date":"2020-12-01","image":"upload\/240px-Dvarf.jpg"}
