@@ -1,14 +1,16 @@
 <?php
 require("header.php");
+define("SERVER_NAME", $serverName);
+define("IMAGES", $serverName . "/images/");
 $clubGames = file_get_contents(SERVER_NAME . '/upload/match.txt');
+
 
 if (!empty($clubGames) && strlen($clubGames)) {
     $prepareClubGames = explode( "\n", $clubGames);
-    json_decode ($prepareClubGames);
     $clubGamesTableRows = [];
     foreach ($prepareClubGames as $clubGames) {
-        $result = explode (",", $clubGames);
-        $clubGamesTableRows[] = $result;
+
+        $clubGamesTableRows[] = json_decode($clubGames);
 
     }
 }
@@ -45,6 +47,7 @@ foreach ($clubGamesTableRows as $value) {
                         </td>
                     <?php }?>
                 </tr>
+
             <?php }?>
         </table>
     </form>
