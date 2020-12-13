@@ -4,13 +4,10 @@ require ("lib/index.php");
 ?>
 
 
-<br>
+<br xmlns="http://www.w3.org/1999/html">
 
-<hr>
 
-<br>
-
-<p>
+<p class="margin-left">
     <span class="sub-text font-weight main-text">"<?php echo $oldNameTextilschick?>"</span> — <span class="main-text"> советский и российский
     футбольный клуб из города <?php echo $ivanovo?>. Основан в <?php echo $yearOfFoundation?> году. Домашний стадион —
     <a href="https://ru.wikipedia.org/wiki/Текстильщик_(стадион,_Иваново)" title="Стадион Текстильщик">"<?php echo $oldNameTextilschick?>"</a>.
@@ -19,9 +16,9 @@ require ("lib/index.php");
 </p>
 
 <div>
-    <span class="headlines">История клуба</span>
+    <span class="headlines margin-left">История клуба</span>
     <span class="main-text">
-    <p >
+    <p class="margin-left">
         Футбольный клуб "<?php echo $oldNameTextilschick?>" основан в 1937 году. Тогда ивановская команда,
         которая в то время называлась <?php echo $oldNameSpartak?>, впервые приняла участие в чемпионате СССР. Однако,
         в целом ивановский футбол значительно старше. Свою точку отсчета футбол в нашем городе берет с 1909 года.
@@ -29,7 +26,7 @@ require ("lib/index.php");
         всероссийского футбольного союза) команда <?php echo $ivanovo?>-Вознесенска сыграла свой первый матч, обыграв
         соседей из Кохмы с неприличным для современного футбола счетом 21:0.
     </p>
-    <p>
+    <p class="margin-left">
         В 20-е годы активно формировались футбольные коллективы на текстильных фабриках. В 1923 году сборная города
         <?php echo $ivanovo?>-Вознесенск приняла участие в футбольном турнире в рамках 1-го Всесоюзного праздника
         физкультуры, проходившего в Москве. Это соревнование рассматривается как первый неофициальный чемпионат СССР.
@@ -40,7 +37,7 @@ require ("lib/index.php");
         году при первом составлении списка «33-х лучших» футболистов страны в него попали сразу шестеро ивановцев!
         Причем большее количество игроков представляло только столицу.
     </p>
-    <p>
+    <p class="margin-left">
         Продолжение следует...
     </p>
     </span>
@@ -48,7 +45,7 @@ require ("lib/index.php");
 
 <br>
 
-<div>
+<div class="margin-left">
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Достижения</span></summary>
     <span class="main-text">
@@ -66,7 +63,7 @@ require ("lib/index.php");
 
 <br>
 
-<div>
+<div class="margin-left">
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Названия клуба</span></summary>
     <table class="main-table">
@@ -86,7 +83,7 @@ require ("lib/index.php");
 
 <br>
 
-<div id="coach">
+<div id="coach" class="margin-left">
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Тренеры клуба</span></summary>
     <form method="get" action="/">
@@ -114,55 +111,6 @@ require ("lib/index.php");
     </form>
     </details>
 </div>
-
-<br>
-
-<div>
-    <details>
-    <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Полезные ссылки</span></summary>
-    <br>
-    <a href="/clubstat.php/" title="Статистика выступлений" target="_blank">Статистика выступлений</a>
-    <br>
-    <a href="/team/" title="Состав команды" target="_blank">Состав команды</a>
-    <br>
-    <a href="/Games.php/" title="Матчи" target="_blank">Матчи</a>
-    <br>
-    <a href="http://fc-textil.ru" title="Официальный сайт ФК Текстильщик" target="_blank">fc-textil.ru</a>
-    <br>
-    <a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D1%89%D0%B8%D0%BA_(%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BB%D1%83%D0%B1,_%D0%98%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE)" title="Текстиль на Wiki" target="_blank">Текстильщик на Wiki</a>
-    </details>
-</div>
-
-<br>
-
-<div>
-    <address><span class="sub-text">г. <?php echo $ivanovo?>, ул. Ермака, 49, 153025</span></address>
-</div>
-
-<br>
-
-
-
-<br>
-
-<p>
-    <img class="date" width="35" height="35" src="ball.png">
-    <span class = "font-weight"><?php echo $today?></span>
-    <img width="35" height="35" src="ball.png">
-</p>
-
-<br>
-
-<form>
-    <button><a href="#top" title="Наверх страницы">&#9650;</a></button>
-    <br>
-
-    <p style="text-align: center">
-
-        <button style="cursor: pointer"><img width="50" height="50" src="ball.png" alt="Текстиль"
-                         style="vertical-align: middle"></button></p>
-
-</form>
 
 <br>
 

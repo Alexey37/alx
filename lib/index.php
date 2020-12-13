@@ -35,7 +35,7 @@ $mainTable = [
     ],
     $ivanovo => "1999-2000",
     $oldNameTextilschick . "Ъ" => "2001-2002",
-    $oldNameTextilschick . "Телеком" => "2004-2007",
+    $oldNameTextilschick . "-Телеком" => "2004-2007",
 ];
 
 $clubOldNamesAndDates = [];

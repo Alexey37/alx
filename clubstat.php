@@ -18,13 +18,13 @@ foreach ($clubStatTableRows as $value) {
 
 
 <div id="clubStatistic">
-    <span class="table-headlines">Статистика выступлений клуба</span>
+    <span class="table-headlines margin-left">Статистика выступлений клуба</span>
     <form method="get" action="/clubstat.php/">
-        <table>
+        <table class="margin-left">
             <tr>
                 <th><span>Год</span>
                     <br>
-                    <button name="sort_by_year" type="submit" value="asc" onclick="return false">&#9650;</button>
+                    <button name="sort_by_year" type="submit" value="asc" >&#9650;</button>
                     <button name="sort_by_year" type="submit" value="desc">&#9660;</button>
                     <button name="sort_by_year" type="submit" value="">&#10006;</button>
                 </th>
@@ -116,5 +116,7 @@ foreach ($clubStatTableRows as $value) {
     </p>
 </body>
 
-
+<?php
+require ("footer.php");
+?>
 

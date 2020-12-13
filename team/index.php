@@ -1,9 +1,10 @@
 <?php
 require("../header.php");
 ?>
+
 <br>
-<span class="table-headlines"> Состав команды </span>
-<table>
+<span class="table-headlines margin-left">Состав команды</span>
+<table class="margin-left">
     <tr>
         <th>Номер</th>
         <th>Игрок</th>
@@ -114,7 +115,20 @@ require("../header.php");
     </tr>
 </table>
 <br>
-<a>Главный тренер команды - Павлов Сергей Александрович</a>
+<br>
+
+<div class="card margin-left" style="width: 18rem; margin-top: -685px; margin-left: 700px">
+    <img class="card-img-top" src="/images/PavlovSA.jpg" alt="Павлов С.А.">
+    <div class="card-body">
+        <h7 class="card-title">Главный тренер</h7>
+        <h5 class="card-title">Павлов Сергей Александрович</h5>
+        <p class="card-text">Заслуженный тренер России. Возглавляет команду с 31 декабря 2019 года. Тренерскую
+        карьеру начал в 1979 году, возглавив команду Текстильщик (г. Камышин, Волгоградская обл.)</p>
+    </div>
+</div>
+
+
+
 
 <?php
 require ("../footer.php");

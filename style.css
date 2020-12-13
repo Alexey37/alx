@@ -1,15 +1,22 @@
 
-hr {
-    background-color: dimgray;
-    height: 5px;
+
+
+.hr-shadow {
+    width: 97%;
+    height: 10px;
+    border: none;
+    border-top: 1px solid #333;
+    box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
+
 
 #font {
     font-family: Tahoma, serif;
 }
 
 .head-container {
-    text-align: center;
+    text-align: left;
+    padding-left: 235px;
     font-family: Tahoma, serif;
 }
 
@@ -20,10 +27,10 @@ hr {
 }
 
 .title {
-    font-size: 38px;
+    font-size: 48px;
+    text-shadow: 0 4px 4px #2D2020;
     color: red;
     font-weight: bold;
-    text-decoration: underline;
 }
 
 .undertitle {
@@ -38,9 +45,10 @@ hr {
 
 
 .logo {
-    margin-top: 20px;
-    width: 200px;
-    height: 200px;
+    margin-top: -185px;
+    margin-left: 27px;
+    width: 185px;
+    height: 185px;
 }
 
 .headlines {
@@ -50,8 +58,13 @@ hr {
     text-decoration: underline;
 }
 
+.margin-left {
+    margin-left: 30px;
+}
 
-
+.personalCards {
+    font-size: xx-large;
+}
 
 
 table {
@@ -69,6 +82,11 @@ table {
     margin-left: 1650px;
 }
 
+.footer-bottom {
+    text-align: right;
+    padding-right: 10px;
+}
+
 .main-text {
     font-size: 22px;
     font-family: Consolas;
@@ -80,7 +98,7 @@ table {
 
 }
 th {
-    background: #FA8072;
+    background: #FFA500;
     color: whitesmoke;
     text-shadow: 0 2px 2px #2D2020;
     padding: 10px 20px;
@@ -124,4 +142,20 @@ td:first-child {
     text-align: left;
     font-weight: bold;
 }
+
+:focus {
+    outline-style: none;
+    outline-width: 0px !important;
+    outline-color: none !important;
+}
+
+#footer {
+    margin: 0 auto;
+    position: relative;
+
+    bottom: 0;
+    width: 100%; /* Ширина слоя */
+}
+
+
 

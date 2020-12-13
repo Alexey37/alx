@@ -20,30 +20,35 @@ foreach ($clubGamesTableRows as $value) {
 
 ?>
 
-
 <div id="clubGames">
-    <span class="table-headlines">Сыгранные матчи</span>
+    <span class="table-headlines margin-left">Сыгранные матчи</span>
     <form method="get" action="/Games.php/">
-        <table>
+        <table class="margin-left">
             <tr>
                 <th>
-                    <span>Соперник</span>
+                    <span>Хозяева</span>
                 </th>
                 <th>
                     <span>Результат</span>
                 </th>
                 <th>
-                    <span>Дата</span>
+                    <span>Гости</span>
                 </th>
                 <th>
-                    <span>Фото</span>
+                    <span>Дата</span>
                 </th>
             </tr>
             <?php foreach ($clubGamesTableRows as $statCells) {?>
                 <tr>
-                    <?php foreach ($statCells as $cell) {?>
+                    <?php foreach ($statCells as $key => $cell) {?>
                         <td>
-                            <?=$cell?>
+                        <? if ($key === 'image'):?>
+                        <img src="/<?= $cell?>" width="200px" height="150px"/>
+                        <? elseif ($key === 'date'): ?>
+                        <?= date('d.m.Y', strtotime($cell))?>
+                        <?php else: ?>
+                        <?=$cell?>
+                        <?php endif ?>
                         </td>
                     <?php }?>
                 </tr>
@@ -52,3 +57,7 @@ foreach ($clubGamesTableRows as $value) {
         </table>
     </form>
 </div>
+
+<?php
+require ("footer.php");
+?>

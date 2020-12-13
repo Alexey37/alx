@@ -1,131 +1,78 @@
 <?php
 require ("lib/header.php");
-session_start ();
-
+require ('lib/admin.php');
 $post = $_POST;
-if (isset($post['password']) && isset($post['submit'])) {
-    $password = '123456';
-    if ($password === $post['password']) {
-        setcookie('auth', 'true', time()+3600);
-        $_SESSION['auth']='true';
-    }
-}
 
-if (isset($post['logout'])) {
-    setcookie('auth', false, time() - 3600);
-    unset($_SESSION['auth']);
-}
+$admin = new Admin($post);
+$admin->authorize();
+$admin->unAuthorize();
+
+$coaches = new Coaches($_POST);
+$uploadedCoaches = $coaches->getUploadedCoaches();
+$result =
 
 $uploadedCoaches = '';
-if (file_exists('upload/coach.txt')) {
-    $uploadedCoaches = file_get_contents(SERVER_NAME . '/upload/coach.txt');
-}
 
 
-
-if (isset($post['coaches']) && $post['submit']) {
-    $content = explode("\n", $post['coaches']);
-    $uploadedCoaches = explode("\n", $uploadedCoaches);
-    foreach($content as $key => $value) {
-        if (in_array(trim($value), $uploadedCoaches)) {
-            unset($content[$key]);
-        }
-    }
-
-
-    //уничтожить пробелы и пустые элементы массива (воскресенье)
-    $result = array_merge($uploadedCoaches, $content);
-    $result = clearArray($result);
-    $result = implode("\n", array_unique($result));
-    $writeResult = file_put_contents( 'upload/coach.txt', $result);
-    if ($writeResult) {
-        $success = true;
-    }
-}
-
-function clearArray (array $array){
-    $result =[];
-    foreach ($array as $key => $value) {
-        $key=trim($key);
-        $value=trim($value);
-        if (stristr($value,', ')) {
-            $value=str_replace (', ', ',', $value);
-        }
-        if (empty($key) || empty($value)) {    // || - ИЛИ   //если удаляю ключ, то грохается и значение
-            continue;
-        }
-        $result[$key]=$value;
-    }
-    return $result;
-}
 
 if ($post['submit_match']) {
-    dump($post);
-    dump($_FILES);
+
     $error = '';
     $file = $_FILES;
     try {
-        if (!preg_match( '/[а-яё]/iu', $post['team'])) {
-            throw new Exception('Неверное название команды');
+        if (!preg_match( '/[а-яё]/iu', $post['teamH'])) {
+            throw new Exception('Неверное название команды хозяев');
         }
 
         if (!validateResult($post['result'])) {
             throw new Exception('Не указан результат');
         }
 
+        if (!preg_match( '/[а-яё]/iu', $post['teamV'])) {
+            throw new Exception('Неверное название команды гостей');
+        }
+
         if (!$post['date']) {
             throw new Exception('Не указана дата');
         }
 
-        if (!$file['image']) {
-            throw new Exception('Не загружено изображение');
-        }
 
         $resultMatches = [
-            'team' => $post['team'],
+            'teamH' => $post['teamH'],
             'result' => $post['result'],
+            'teamV' => $post['teamV'],
             'date' => $post['date'],
-            'image' => 'upload/' . $file['image']['name'],
         ];
-
-        $uploadedResult = move_uploaded_file(
-                $file['image']['tmp_name'],
-                'upload/image/' . $file['image']['name']
-        );
-
-        if (!$uploadedResult) {
-            throw new Exception("Не удалось сохранить изображение");
-        }
-
+        
         $data = file_put_contents(
-                'upload/match.txt',
-                json_encode($resultMatches) . PHP_EOL,
-                FILE_APPEND
+            'upload/match.txt',
+            json_encode($resultMatches) . PHP_EOL,
+            FILE_APPEND
         );
 
         if (!$data) {
             throw new Exception('Не удалось сохранить данные');
         }
 
+
     } catch (\Exception $exception) {
         $error = $exception->getMessage();
     }
 }
 function validateResult (string $result) {
-    dump(1);
     if (empty($result)) {
         return false;
     }
-    dump(2);
+
     if (stristr($result, ':') === false) {
         return false;
     }
     $matchResult = explode(":", $result);
-    dump(3);
+
     if (count($matchResult)>2) {
         return false;
     }
-    dump(4);
+
     foreach ($matchResult as $value) {
         if (!is_integer((int)$value)) {
             return false;
@@ -135,7 +82,7 @@ function validateResult (string $result) {
 }
 
 
-print_r($resultMatches);
+
 echo $error;
 ?>
 
@@ -144,7 +91,7 @@ echo $error;
     <p style="color: greenyellow">Успешно!</p>
 <?php endif;?>
 
-<?php if (!$_SESSION['auth']):?>
+<?php if (!Admin::isAuthorized()):?>
 <p>Пароль</p>
 <form method="post" action="admin.php">
     <input type="password" name="password" value=""/>
@@ -152,7 +99,7 @@ echo $error;
 </form>
 <?php endif;?>
 
-<?php if ($_SESSION['auth'] === 'true'):?>
+<?php if (Admin::isAuthorized()):?>
     <p>Тренеры</p>
     <form method="post" action="admin.php">
         <textarea name="coaches"><?= $result ?? $uploadedCoaches ?? ''?></textarea>
@@ -166,10 +113,11 @@ echo $error;
     <br>
     <p>Сыгранные матчи</p>
     <form method="post" action="admin.php" enctype="multipart/form-data">
-        <input type="text" name="team" placeholder="команда"/>
-        <input type="text" pattern="\d+(:\d)?" name="result" placeholder="результат"/>
+        <input type="text" name="teamH" placeholder="команда хозяев"/>
+        <input type="text" pattern="\d+(:\d)?" name="result" placeholder="результат (в формате Х:Х)"/>
+        <input type="text" name="teamV" placeholder="команда гостей"/>
         <input type="date" pattern="/(19|20)\d\d-((0[1-9]|1[012])-(0[1-9]|[12]\d)|(0[13-9]|1[012])-30|(0[13578]|1[02])-31)/" name="date" placeholder="дата"/>
-        <input type="file" name="image"/>
+
         <input type="submit" name="submit_match" />
     </form>
 <?php endif;?>
