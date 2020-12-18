@@ -7,15 +7,15 @@ require ("lib/index.php");
 <br xmlns="http://www.w3.org/1999/html">
 
 
-<p class="margin-left">
-    <span class="sub-text font-weight main-text">"<?php echo $oldNameTextilschick?>"</span> — <span class="main-text"> советский и российский
+<p class="part-one">
+    <span class="sub-text font-weight main-text margin-left">"<?php echo $oldNameTextilschick?>"</span> — <span class="main-text"> советский и российский
     футбольный клуб из города <?php echo $ivanovo?>. Основан в <?php echo $yearOfFoundation?> году. Домашний стадион —
     <a href="https://ru.wikipedia.org/wiki/Текстильщик_(стадион,_Иваново)" title="Стадион Текстильщик">"<?php echo $oldNameTextilschick?>"</a>.
     В качестве спортивной базы клуба заявлен ивановский стадион «Локомотив». Команда выступает во втором по значимости
     футбольном дивизионе России - Футбольной Национальной Лиге. </span>
 </p>
 
-<div>
+<div class="part-one">
     <span class="headlines margin-left">История клуба</span>
     <span class="main-text">
     <p class="margin-left">
@@ -45,13 +45,13 @@ require ("lib/index.php");
 
 <br>
 
-<div class="margin-left">
+<div class="margin-left part-one">
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Достижения</span></summary>
     <span class="main-text">
        <ul>
             <li>Обладатель Кубка РСФСР - <?php echo $yearFirstCupRsfsrWinner?> <?php echo $yearWord?></li>
-            <li>Обладатель Кубка РСФСР - <?php echo $yearSecondCupRsfsrWinner?> <?php echo $yearWord?></li>
+            <li>Обладатель Кубка РСФСР для команд второй лиги - <?php echo $yearSecondCupRsfsrWinner?> <?php echo $yearWord?></li>
             <li>Финалист Кубка РСФСР - <?php echo $yearFinalCupRsfsr?> <?php echo $yearWord?></li>
             <li>Обладатель Кубка Золотого кольца - <?php echo $yearGoldenRingCupWinner?> <?php echo $yearWord?></li>
             <li>Чемпион Второго дивизиона ПФЛ (зона Запад) - <?php echo $yearSecondDivWinner?> <?php echo $yearWord?></li>
@@ -63,7 +63,7 @@ require ("lib/index.php");
 
 <br>
 
-<div class="margin-left">
+<div class="margin-left part-one">
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Названия клуба</span></summary>
     <table class="main-table">
@@ -83,7 +83,7 @@ require ("lib/index.php");
 
 <br>
 
-<div id="coach" class="margin-left">
+<div id="coach" class="margin-left part-one">
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Тренеры клуба</span></summary>
     <form method="get" action="/">

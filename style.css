@@ -90,6 +90,7 @@ table {
 .main-text {
     font-size: 22px;
     font-family: Consolas;
+
 }
 
 table {
@@ -159,3 +160,36 @@ td:first-child {
 
 
 
+.header {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    left: 0px;
+    top: 0px;
+}
+
+.background {
+    background: url("/images/futbol-pole-gazon-trava.png") no-repeat fixed 100% 100%;
+}
+
+.part-one {
+    margin-left: 250px;
+    margin-top: 20px;
+    padding: 20px; /* Поля */
+    background: #00FF7F; /* Цвет фона */
+    border: 5px solid whitesmoke; /* Параметры рамки */
+    border-radius: 25px;
+
+    width: 50%;
+
+}
+
+.footer-container {
+    background-image:  url("/images/grass.png");
+    position: relative;
+    width: 100%; /* Ширина слоя */
+    padding: 20px;
+    background-color: white;
+    height: 254px;
+
+}
