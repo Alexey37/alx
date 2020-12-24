@@ -7,18 +7,17 @@ require ("lib/index.php");
 <br xmlns="http://www.w3.org/1999/html">
 
 
-<p class="part-one">
-    <span class="sub-text font-weight main-text margin-left">"<?php echo $oldNameTextilschick?>"</span> — <span class="main-text"> советский и российский
-    футбольный клуб из города <?php echo $ivanovo?>. Основан в <?php echo $yearOfFoundation?> году. Домашний стадион —
-    <a href="https://ru.wikipedia.org/wiki/Текстильщик_(стадион,_Иваново)" title="Стадион Текстильщик">"<?php echo $oldNameTextilschick?>"</a>.
+<p class="part-one container-fluid">
+    <span class="font-weight main-text">"<?php echo $oldNameTextilschick?>"</span> — <span class="main-text"> советский и российский
+    футбольный клуб из города <?php echo $ivanovo?>. Основан в <?php echo $yearOfFoundation?> году. Домашний стадион — "<?php echo $oldNameTextilschick?>".
     В качестве спортивной базы клуба заявлен ивановский стадион «Локомотив». Команда выступает во втором по значимости
     футбольном дивизионе России - Футбольной Национальной Лиге. </span>
 </p>
 
-<div class="part-one">
-    <span class="headlines margin-left">История клуба</span>
+<div class="part-one container-fluid">
+    <span class="headlines">История клуба</span>
     <span class="main-text">
-    <p class="margin-left">
+    <p>
         Футбольный клуб "<?php echo $oldNameTextilschick?>" основан в 1937 году. Тогда ивановская команда,
         которая в то время называлась <?php echo $oldNameSpartak?>, впервые приняла участие в чемпионате СССР. Однако,
         в целом ивановский футбол значительно старше. Свою точку отсчета футбол в нашем городе берет с 1909 года.
@@ -26,7 +25,7 @@ require ("lib/index.php");
         всероссийского футбольного союза) команда <?php echo $ivanovo?>-Вознесенска сыграла свой первый матч, обыграв
         соседей из Кохмы с неприличным для современного футбола счетом 21:0.
     </p>
-    <p class="margin-left">
+    <p>
         В 20-е годы активно формировались футбольные коллективы на текстильных фабриках. В 1923 году сборная города
         <?php echo $ivanovo?>-Вознесенск приняла участие в футбольном турнире в рамках 1-го Всесоюзного праздника
         физкультуры, проходившего в Москве. Это соревнование рассматривается как первый неофициальный чемпионат СССР.
@@ -37,7 +36,7 @@ require ("lib/index.php");
         году при первом составлении списка «33-х лучших» футболистов страны в него попали сразу шестеро ивановцев!
         Причем большее количество игроков представляло только столицу.
     </p>
-    <p class="margin-left">
+    <p>
         Продолжение следует...
     </p>
     </span>
@@ -45,7 +44,7 @@ require ("lib/index.php");
 
 <br>
 
-<div class="margin-left part-one">
+<div class="part-one container-fluid">
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Достижения</span></summary>
     <span class="main-text">
@@ -63,7 +62,7 @@ require ("lib/index.php");
 
 <br>
 
-<div class="margin-left part-one">
+<div class="part-one container-fluid">
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Названия клуба</span></summary>
     <table class="main-table">
@@ -83,7 +82,7 @@ require ("lib/index.php");
 
 <br>
 
-<div id="coach" class="margin-left part-one">
+<div id="coach" class="part-one container-fluid">
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Тренеры клуба</span></summary>
     <form method="get" action="/">

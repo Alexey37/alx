@@ -22,20 +22,20 @@
 
 .sub-text {
     font-size: x-large;
-    color: black;
+    color: white;
     font-weight: bold;
 }
 
 .title {
     font-size: 48px;
-    text-shadow: 0 4px 4px #2D2020;
+    text-shadow: 0 3px 3px white;
     color: red;
     font-weight: bold;
 }
 
 .undertitle {
     font-size: large;
-    color: dimgrey;
+    color: white;
     font-style: italic;
 }
 
@@ -45,10 +45,9 @@
 
 
 .logo {
-    margin-top: -185px;
-    margin-left: 27px;
-    width: 185px;
-    height: 185px;
+
+    width: 160px;
+    height: 160px;
 }
 
 .headlines {
@@ -169,18 +168,22 @@ td:first-child {
 }
 
 .background {
-    background: url("/images/futbol-pole-gazon-trava.png") no-repeat fixed 100% 100%;
+    background: rgb(226,55,55);
+    background: linear-gradient(180deg, rgba(226,55,55,1) 33%, rgba(255,255,255,1) 84%);
+    position: relative;
+    padding: -5px;
+
 }
 
 .part-one {
-    margin-left: 250px;
+
     margin-top: 20px;
     padding: 20px; /* Поля */
-    background: #00FF7F; /* Цвет фона */
-    border: 5px solid whitesmoke; /* Параметры рамки */
-    border-radius: 25px;
+    background: #F8E391; /* Цвет фона */
+    border: 5px solid #FFA500; /* Параметры рамки */
+    border-radius: 45px;
 
-    width: 50%;
+    width: 65%;
 
 }
 
@@ -191,5 +194,38 @@ td:first-child {
     padding: 20px;
     background-color: white;
     height: 254px;
+}
 
+.header-container {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 41%, rgba(226,55,55,1) 100%);
+    position: relative;
+    width: 100%; /* Ширина слоя */
+    padding: 20px;
+    background-color: white;
+    height: 400px;
+}
+
+.buttons-borders {
+    border-radius: 35px;
+    border-width: 5px;
+    border-color: black;
+    border-style: dashed;
+}
+
+.gradient-border {
+    padding: 20px;
+    letter-spacing: 0.2em;
+    border: 1px solid;
+
+}
+
+.padding-top-30 {
+    padding-top: 30px;
+}
+
+.small-headlines {
+    font-size: 40px;
+    color: black;
+    text-shadow: 0 3px 3px white;
 }

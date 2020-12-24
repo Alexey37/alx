@@ -20,7 +20,7 @@ if ($post['submit_match']) {
     $error = '';
     $file = $_FILES;
     try {
-        if (!preg_match( '/[а-яё]/iu', $post['teamH'])) {
+        if (!preg_match( '/[а-яё]/iu', $post['team_home'])) {
             throw new Exception('Неверное название команды хозяев');
         }
 
@@ -28,7 +28,7 @@ if ($post['submit_match']) {
             throw new Exception('Не указан результат');
         }
 
-        if (!preg_match( '/[а-яё]/iu', $post['teamV'])) {
+        if (!preg_match( '/[а-яё]/iu', $post['team_visitors'])) {
             throw new Exception('Неверное название команды гостей');
         }
 
@@ -38,9 +38,9 @@ if ($post['submit_match']) {
 
 
         $resultMatches = [
-            'teamH' => $post['teamH'],
+            'teamH' => $post['team_home'],
             'result' => $post['result'],
-            'teamV' => $post['teamV'],
+            'teamV' => $post['team_visitors'],
             'date' => $post['date'],
         ];
         
@@ -81,11 +81,11 @@ function validateResult (string $result) {
     return true;
 }
 
-
-
-echo $error;
 ?>
 
+<link rel="stylesheet" href="bootstrap.css">
+
+<div class="container">
 
 <?php if ($success && $post['submit']): ?>
     <p style="color: greenyellow">Успешно!</p>
@@ -100,22 +100,27 @@ echo $error;
 <?php endif;?>
 
 <?php if (Admin::isAuthorized()):?>
-    <p>Тренеры</p>
+
     <form method="post" action="admin.php">
-        <textarea name="coaches"><?= $result ?? $uploadedCoaches ?? ''?></textarea>
-        <input type="submit" name="submit"/>
+        <input class="btn btn-danger" type="submit" name="logout" value="logout"/>
     </form>
+
     <form method="post" action="admin.php">
-       <input type="submit" name="logout" value="logout"/>
+        <div class="mb-3">
+            <label for="coaches" class="form-label">Тренеры</label>
+            <textarea class="form-control" id="coaches" rows="3" name="coaches"><?= $result ?? $uploadedCoaches ?? ''?></textarea>
+        </div>
+        <div>
+            <input class="btn btn-info" type="submit" name="submit"/>
+        </div>
     </form>
-    <br>
-    <br>
+
     <br>
     <p>Сыгранные матчи</p>
     <form method="post" action="admin.php" enctype="multipart/form-data">
-        <input type="text" name="teamH" placeholder="команда хозяев"/>
+        <input type="text" name="team_home" placeholder="команда хозяев"/>
         <input type="text" pattern="\d+(:\d)?" name="result" placeholder="результат (в формате Х:Х)"/>
-        <input type="text" name="teamV" placeholder="команда гостей"/>
+        <input type="text" name="team_visitors" placeholder="команда гостей"/>
         <input type="date" pattern="/(19|20)\d\d-((0[1-9]|1[012])-(0[1-9]|[12]\d)|(0[13-9]|1[012])-30|(0[13578]|1[02])-31)/" name="date" placeholder="дата"/>
 
         <input type="submit" name="submit_match" />
@@ -130,5 +135,8 @@ function validateDate($date, $format = 'd.m.Y') {
 
 var_dump(validateDate('10.02.2011', 'd.m.Y'));
 ?>
+</div>
 
+<script src="jquery.js"></script>
+<script src="bootstrap.js"></script>
 
