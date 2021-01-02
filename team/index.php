@@ -15,7 +15,7 @@ require("../header.php");
     <div class="container">
        <div class="row justify-content-center">
             <div class="col-1-2">
-                <table class="table-border">
+                <table>
                     <tr>
                         <th>Номер</th>
                         <th>Игрок</th>
@@ -127,7 +127,7 @@ require("../header.php");
                 </table>
             </div>
             <div class="col-1-2">
-                <div class="card" style="width: 20rem">
+                <div class="card" style="width: 17rem">
                     <img class="card-img-top" src="/images/PavlovSA.jpg" alt="Павлов С.А.">
                     <div class="card-body">
                         <h7 class="card-title">Главный тренер</h7>

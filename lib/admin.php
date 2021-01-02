@@ -51,9 +51,41 @@ class Main {
     }
 }
 
-class Admin extends Main {
+class DataBase {
 
-    const PASSWORD = '123456';
+    const DSN = 'mysql:host=localhost;dbname=arashi5_alex';
+    const USER_NAME ='arashi5_alex';
+    const PASS = 'Takoro923Dzad';
+
+    private $connection;
+
+    public function __construct()
+    {
+        try {
+            $this->connection = new PDO(
+                static::DSN,
+                static::USER_NAME,
+                static::PASS
+            );
+        } catch (Exception $exception) {
+            //TODO ДЗ - обработать ошибку
+        }
+    }
+
+    public function getAdminPasswords()
+    {
+        try {
+            $sqlQuery = 'SELECT password FROM user WHERE role="adm"';
+            $dbResult = $this->connection->query($sqlQuery);
+            return $dbResult->fetchAll( \PDO::FETCH_ASSOC);
+        } catch (Exception $exception) {
+            dump($exception->getMessage());
+        }
+    }
+}
+
+
+class Admin extends Main {
 
     public function authorize(): void
     {
@@ -61,11 +93,17 @@ class Admin extends Main {
             return;
         }
 
-        if ($this->post['password'] === static::PASSWORD) {
+      $passwords = (new DataBase())->getAdminPasswords();
+      $passwords = array_column($passwords, 'password');
+        if (in_array($this->post['password'], $passwords, true)) {
             session_start();
             $_SESSION['auth'] = true;
         }
     }
+
+
+
+
 
     public function unAuthorize(): void
     {
@@ -129,6 +167,19 @@ if (isset($post['coaches']) && $post['submit']) {
     if ($writeResult) {
         $success = true;
     }
+}
+
+
+$host = 'localhost';  // Хост, у нас все локально
+$user = 'arashi5_alex';    // Имя созданного вами пользователя
+$pass = '1q2w3e4r5t'; // Установленный вами пароль пользователю
+$db_name = 'MySQL - arashi5_alex@vh214.timeweb.ru';   // Имя базы данных
+$link = mysqli_connect($host, $user, $pass, $db_name); // Соединяемся с базой
+
+// Ругаемся, если соединение установить не удалось
+if (!$link) {
+    echo 'Не могу соединиться с БД. Код ошибки: ' . mysqli_connect_errno() . ', ошибка: ' . mysqli_connect_error();
+    exit;
 }
 
 
