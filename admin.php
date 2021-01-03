@@ -1,6 +1,9 @@
 <?php
 require ("lib/header.php");
-require ('lib/admin.php');
+
+use App\Admin\Coaches;
+use App\Admin\Admin;
+
 $post = $_POST;
 
 $admin = new Admin($post);
@@ -14,6 +17,14 @@ $result =
 $uploadedCoaches = '';
 
 
+if (isset($post['coaches']) && $post['submit']) {
+
+
+    $writeResult = file_put_contents( 'upload/coach.txt', $result);
+    if ($writeResult) {
+        $success = true;
+    }
+}
 
 if ($post['submit_match']) {
 
