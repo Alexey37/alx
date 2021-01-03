@@ -1,0 +1,13 @@
+{
+    "name": "dev/ara",
+    "autoload": {
+        "psr-4": {"App\\": "lib/"}
+    },
+    "authors": [
+        {
+            "name": "Arashi5",
+            "email": "v.arashin@icloud.com"
+        }
+    ],
+    "require": {}
+}
