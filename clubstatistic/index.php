@@ -1,5 +1,5 @@
 <?php
-require("header.php");
+require("../header.php");
 $clubStatistic = file_get_contents (SERVER_NAME . '/upload/statistic.txt');
 if (!empty($clubStatistic) && strlen($clubStatistic)) {
     $prepareClubStatistic = explode("\n", $clubStatistic);
@@ -11,7 +11,7 @@ if (!empty($clubStatistic) && strlen($clubStatistic)) {
     }
 }
 foreach ($clubStatTableRows as $value) {
-   // dump($value);
+    // dump($value);
 }
 
 ?>
@@ -99,24 +99,24 @@ foreach ($clubStatTableRows as $value) {
             <?php foreach ($clubStatTableRows as $statCells) {?>
                 <tr>
                     <?php foreach ($statCells as $cell) {?>
-                    <td>
-                        <?=$cell?>
-                    </td>
+                        <td>
+                            <?=$cell?>
+                        </td>
                     <?php }?>
                 </tr>
             <?php }?>
-       </table>
+        </table>
     </form>
 </div>
 
 <br>
 <body>
-    <p class="main-text">* - турнир не был завершён из-за пандемии COVID-19. Команды, оказавшиеся в зоне вылета сохранили прописку в ФНЛ
+<p class="main-text">* - турнир не был завершён из-за пандемии COVID-19. Команды, оказавшиеся в зоне вылета сохранили прописку в ФНЛ
     (при условии, что они не отказались от дальнейших выступлений)
-    </p>
+</p>
 </body>
 
 <?php
-require ("footer.php");
+require ("../footer.php");
 ?>
 
