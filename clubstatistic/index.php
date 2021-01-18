@@ -19,7 +19,7 @@ foreach ($clubStatTableRows as $value) {
 
 <div id="clubStatistic">
     <span class="table-headlines margin-left">Статистика выступлений клуба</span>
-    <form method="get" action="/clubstat.php/">
+    <form method="get" action="/clubstatistic/index.php">
         <table class="margin-left">
             <tr>
                 <th><span>Год</span>
@@ -110,11 +110,11 @@ foreach ($clubStatTableRows as $value) {
 </div>
 
 <br>
-<body>
-<p class="main-text">* - турнир не был завершён из-за пандемии COVID-19. Команды, оказавшиеся в зоне вылета сохранили прописку в ФНЛ
-    (при условии, что они не отказались от дальнейших выступлений)
-</p>
-</body>
+<div>
+    <p class="main-text">* - турнир не был завершён из-за пандемии COVID-19. Команды, оказавшиеся в зоне вылета сохранили прописку в ФНЛ
+        (при условии, что они не отказались от дальнейших выступлений)
+    </p>
+</div>
 
 <?php
 require ("../footer.php");

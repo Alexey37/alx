@@ -9,5 +9,8 @@
             "email": "v.arashin@icloud.com"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/var-dumper": "^4.4",
+        "paquettg/php-html-parser": "^3.1"
+    }
 }

@@ -34,4 +34,16 @@ class DataBase {
 
         }
     }
+
+    public function getOldNames()
+    {
+        try {
+            $sqlQuery = 'SELECT * FROM old_names'; //выбрать все данные из указанной таблицы
+            $dbResult = $this->connection->query($sqlQuery); //query для получения данных
+            return $dbResult->fetchAll( \PDO::FETCH_ASSOC); //выводит массив
+        } catch (Exception $exception) {
+            
+        }
+
+    }
 }

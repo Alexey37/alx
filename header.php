@@ -48,7 +48,7 @@ require ("lib/header.php");
                         ГАЛЕРЕЯ
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="/gallery/index.php" target="_blank"><b>Фото</b></a>
+                        <a class="dropdown-item" href="/gallery/" target="_blank"><b>Фото</b></a>
                         <a class="dropdown-item" href="#"><b>ВидеоПУСТО</b></a>
                     </div>
                 </div>
@@ -58,8 +58,8 @@ require ("lib/header.php");
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                         <a class="dropdown-item" href="/team/" target="_blank"><b>Состав</b></a>
-                        <a class="dropdown-item" href=# target="_blank"><b>КалендарьПУСТО</b></a>
-                        <a class="dropdown-item" href="/Games.php" target="_blank"><b>Результаты</b></a>
+                        <a class="dropdown-item" href="/calendar/" target="_blank"><b>Календарь</b></a>
+                        <a class="dropdown-item" href="/games/" target="_blank"><b>Результаты</b></a>
                     </div>
                 </div>
                 <div class="btn-group margin-left" role="group">
@@ -77,9 +77,9 @@ require ("lib/header.php");
                         ИСТОРИЯ
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="/clubstat.php/" target="_blank"><b>Статистика выступлений</b></a>
+                        <a class="dropdown-item" href="/clubstatistic/" target="_blank"><b>Статистика выступлений</b></a>
                         <a class="dropdown-item" href=# target="_blank"><b>ДостиженияПУСТО</b></a>
-                        <a class="dropdown-item" href=# target="_blank"><b>Названия клубаПУСТО</b></a>
+                        <a class="dropdown-item" href="/oldclubnames/" target="_blank"><b>Названия клуба</b></a>
                         <a class="dropdown-item" href=# target="_blank"><b>ТренерыПУСТО</b></a>
                     </div>
                 </div>

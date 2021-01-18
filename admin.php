@@ -3,6 +3,14 @@ require ("lib/header.php");
 
 use App\Admin\Coaches;
 use App\Admin\Admin;
+use App\Admin\Calendar;
+
+$calendar = new Calendar();
+$dom = $calendar->parseContent($calendar->isServerLive());
+if ($dom !== null) {
+
+}
+
 
 $post = $_POST;
 
