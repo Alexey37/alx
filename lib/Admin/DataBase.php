@@ -14,12 +14,12 @@ class DataBase {
     public function __construct()
     {
         try {
-            $this->connection = new PDO(
+            $this->connection = new \PDO(
                 static::DSN,
                 static::USER_NAME,
                 static::PASS
             );
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             dump($exception->getMessage());
         }
     }
@@ -30,7 +30,7 @@ class DataBase {
             $sqlQuery = 'SELECT password FROM user WHERE role="adm"';
             $dbResult = $this->connection->query($sqlQuery);
             return $dbResult->fetchAll( \PDO::FETCH_ASSOC);
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
 
         }
     }
@@ -41,8 +41,20 @@ class DataBase {
             $sqlQuery = 'SELECT * FROM old_names'; //выбрать все данные из указанной таблицы
             $dbResult = $this->connection->query($sqlQuery); //query для получения данных
             return $dbResult->fetchAll( \PDO::FETCH_ASSOC); //выводит массив
-        } catch (Exception $exception) {
-            
+        } catch (\Exception $exception) {
+
+        }
+
+    }
+
+    public function getAchievements()
+    {
+        try {
+            $sqlQuery = 'SELECT * FROM achievements'; //выбрать все данные из указанной таблицы
+            $dbResult = $this->connection->query($sqlQuery); //query для получения данных
+            return $dbResult->fetchAll( \PDO::FETCH_ASSOC); //выводит массив
+        } catch (\Exception $exception) {
+
         }
 
     }

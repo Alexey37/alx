@@ -1,10 +1,9 @@
 <?php
 require("../header.php");
-$host = "localhost"; //Сервер БД
-$user = "root"; //Имя пользователя, он по умолчанию "root"
-$password = ""; //Пароль для пользователя, по умолчанию он пустой
-$db = "old_names"; // Имя БД, с которой мы будем работать
 
+//use App\Admin\Calendar;
+//$calendar = (new Calendar())->ФУНКЦИЯ();
+//dump($calendar);
 ?>
 
 

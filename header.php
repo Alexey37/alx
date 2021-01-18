@@ -78,7 +78,7 @@ require ("lib/header.php");
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                         <a class="dropdown-item" href="/clubstatistic/" target="_blank"><b>Статистика выступлений</b></a>
-                        <a class="dropdown-item" href=# target="_blank"><b>ДостиженияПУСТО</b></a>
+                        <a class="dropdown-item" href='/achievements/' target="_blank"><b>Достижения</b></a>
                         <a class="dropdown-item" href="/oldclubnames/" target="_blank"><b>Названия клуба</b></a>
                         <a class="dropdown-item" href=# target="_blank"><b>ТренерыПУСТО</b></a>
                     </div>

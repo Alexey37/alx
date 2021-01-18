@@ -4,6 +4,12 @@
 namespace App\Admin;
 
 use PHPHtmlParser\Dom;
+use PHPHtmlParser\Exceptions\ChildNotFoundException;
+use PHPHtmlParser\Exceptions\CircularException;
+use PHPHtmlParser\Exceptions\ContentLengthException;
+use PHPHtmlParser\Exceptions\LogicalException;
+use PHPHtmlParser\Exceptions\StrictException;
+use Psr\Http\Client\ClientExceptionInterface;
 
 class Calendar
 {
@@ -27,7 +33,15 @@ class Calendar
             return null;
         }
 
-        return (new Dom())->loadFromUrl($this->url . 'sezon/kalendar/');
+        try {
+            return (new Dom())->loadFromUrl($this->url . 'sezon/kalendar/');
+        } catch (ChildNotFoundException $e) {
+        } catch (CircularException $e) {
+        } catch (ContentLengthException $e) {
+        } catch (LogicalException $e) {
+        } catch (StrictException $e) {
+        } catch (ClientExceptionInterface $e) {
+        }
 
     }
 }

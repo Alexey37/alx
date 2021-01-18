@@ -44,44 +44,6 @@ require ("lib/index.php");
 
 <br>
 
-<div class="part-one container-fluid">
-    <details>
-    <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Достижения</span></summary>
-    <span class="main-text">
-       <ul>
-            <li>Обладатель Кубка РСФСР - <?php echo $yearFirstCupRsfsrWinner?> <?php echo $yearWord?></li>
-            <li>Обладатель Кубка РСФСР для команд второй лиги - <?php echo $yearSecondCupRsfsrWinner?> <?php echo $yearWord?></li>
-            <li>Финалист Кубка РСФСР - <?php echo $yearFinalCupRsfsr?> <?php echo $yearWord?></li>
-            <li>Обладатель Кубка Золотого кольца - <?php echo $yearGoldenRingCupWinner?> <?php echo $yearWord?></li>
-            <li>Чемпион Второго дивизиона ПФЛ (зона Запад) - <?php echo $yearSecondDivWinner?> <?php echo $yearWord?></li>
-            <li>Победитель Первенства ПФЛ (зона Запад) - <?php echo $yearSecondDiwWinnerPartOne?>/<?php echo $yearSecondDiwWinnerPartTwo?> сезон</li>
-        </ul>
-        </span>
-    </details>
-</div>
-
-<br>
-
-<div class="part-one container-fluid">
-    <details>
-    <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Названия клуба</span></summary>
-    <table class="main-table">
-        <tr>
-            <th>Название</th>
-            <th>Период</th>
-        </tr>
-        <?php foreach ($clubOldNamesAndDates as $value) {?>
-        <tr>
-            <td><?=$value['name']?></td>
-            <td><?=$value['date']?></td>
-        </tr>
-        <?php }?>
-    </table>
-    </details>
-</div>
-
-<br>
-
 <div id="coach" class="part-one container-fluid">
     <details>
     <summary style="outline: transparent"><span class="headlines" style="cursor: pointer">Тренеры клуба</span></summary>
