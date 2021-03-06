@@ -1,16 +1,40 @@
 <?php
+
+$var = 1;
+$var2 = 2.5;
+
+$result = $var + $var;
+dump($result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 require ("lib/header.php");
 
 use App\Admin\Coaches;
 use App\Admin\Admin;
-use App\Admin\Calendar;
+use App\Service\Calendar;
 
 $calendar = new Calendar();
-$dom = $calendar->parseContent($calendar->isServerLive());
-if ($dom !== null) {
-
-}
-
+$opponents = $calendar->execute();
+dump($opponents);
 
 $post = $_POST;
 

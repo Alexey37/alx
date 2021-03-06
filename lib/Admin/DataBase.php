@@ -44,7 +44,6 @@ class DataBase {
         } catch (\Exception $exception) {
 
         }
-
     }
 
     public function getAchievements()
@@ -56,18 +55,41 @@ class DataBase {
         } catch (\Exception $exception) {
 
         }
-
     }
 
     public function getGamesCalendar()
     {
         try {
-            $sqlQuery = 'SELECT * FROM games_calendar'; //выбрать все данные из указанной таблицы
+            $sqlQuery = 'SELECT name, score, logo, game_date FROM games_calendar WHERE score = "-- : --"';
+                            //выбрать нужные данные из указанной таблицы, где счёт = -- : --
             $dbResult = $this->connection->query($sqlQuery); //query для получения данных
             return $dbResult->fetchAll( \PDO::FETCH_ASSOC); //выводит массив
         } catch (\Exception $exception) {
 
         }
-
     }
+
+    public function getGamesResults()
+    {
+        try {
+            $sqlQuery = 'SELECT name, score, logo, game_date FROM games_calendar WHERE score != "-- : --"'; //выбрать данные только из указанных столбцов из указанной таблицы
+            $dbResult = $this->connection->query($sqlQuery); //query для получения данных
+            return $dbResult->fetchAll( \PDO::FETCH_ASSOC); //выводит массив
+        } catch (\Exception $exception) {
+
+        }
+    }
+
+    public function setGamesCalendar (array $opponent)
+    {
+    $sql ='';
+    foreach ($opponent as $key => $value)
+        {
+            $sql += sprintf( '(%s,%s,%s,%s)', $value['name'], $value['score'], $value['logo'], $value['game_date']);
+        }
+
+        $sqlQuery = 'INSERT INTO games_calendar (name, score, logo, game_date) VALUES (????)';
+    }
+
+
 }

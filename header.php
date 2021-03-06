@@ -60,6 +60,7 @@ require ("lib/header.php");
                         <a class="dropdown-item" href="/team/" target="_blank"><b>Состав</b></a>
                         <a class="dropdown-item" href="/calendar/" target="_blank"><b>Календарь</b></a>
                         <a class="dropdown-item" href="/games/" target="_blank"><b>Результаты</b></a>
+                        <a class="dropdown-item" href="/games(TEST)/" target="_blank"><b>РезультатыТЕСТ</b></a>
                     </div>
                 </div>
                 <div class="btn-group margin-left" role="group">
@@ -77,10 +78,12 @@ require ("lib/header.php");
                         ИСТОРИЯ
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="/clubstatistic/" target="_blank"><b>Статистика выступлений</b></a>
+                        <a class="dropdown-item" href='/clubstatistic/' target="_blank"><b>Статистика выступлений</b></a>
                         <a class="dropdown-item" href='/achievements/' target="_blank"><b>Достижения</b></a>
-                        <a class="dropdown-item" href="/oldclubnames/" target="_blank"><b>Названия клуба</b></a>
+                        <a class="dropdown-item" href='/oldclubnames/' target="_blank"><b>Названия клуба</b></a>
                         <a class="dropdown-item" href=# target="_blank"><b>ТренерыПУСТО</b></a>
+                        <a class="dropdown-item" href='/javascript-test/' target="_blank"><b>JavaScript-ТECТ</b></a>
+                        <a class="dropdown-item" href='/quiz/' target="_blank"><b>Викторина</b></a>
                     </div>
                 </div>
             </div>

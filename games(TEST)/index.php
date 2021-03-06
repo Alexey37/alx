@@ -2,7 +2,7 @@
 require("../header.php");
 
 use App\Admin\DataBase;
-$gamesCalendar = (new DataBase())->getGamesCalendar();
+$gamesCalendar = (new DataBase())->getGamesResults();
 ?>
 <table class="main-table">
     <tr>
@@ -14,7 +14,7 @@ $gamesCalendar = (new DataBase())->getGamesCalendar();
     <?php foreach ($gamesCalendar as $value) {?>
         <tr>
             <td><?=$value['name']?></td>
-            <td><img src ="../upload/opponents/Irtysh.png"></td>
+            <td><?=$value['logo']?></td>
             <td><?=$value['score']?></td>
             <td><?=$value['game_date']?></td>
         </tr>
